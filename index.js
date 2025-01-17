@@ -47,6 +47,7 @@ let computerScore = 0;
 const body= document.body
 const container= document.createElement("container"); 
 const result= document.createElement("div");
+const score= document.createElement("div");
 
 body.appendChild(container)
 
@@ -69,7 +70,7 @@ function playRound(humanChoice, computerChoice) {
     result.textContent="It's a tie!"
   }
   if (humanChoice === "Paper" && computerChoice === "Rock"){
-    result.textContent="You win! Paaper beats Rock."
+    result.textContent="You win! Paper beats Rock."
     humanScore++
     }
   if (humanChoice === "Paper" && computerChoice === "Scissors"){
@@ -90,6 +91,7 @@ function playRound(humanChoice, computerChoice) {
   if (humanChoice === "Scissors" && computerChoice === "Scissors"){
     result.textContent="It's a tie!"
   }
+  score.textContent= "Computer Score " + computerScore + " Player Score " + humanScore;
   }
 
 //const humanSelection = getHumanChoice()
@@ -102,12 +104,19 @@ function playRound(humanChoice, computerChoice) {
 // You will write a function named playGame that calls playround to play 5 rounds,
 // keeps track of the scores and declares a winner at the end. 
 const rock= document.createElement("button");
+rock.textContent= "Rock";
 const paper= document.createElement("button");
+paper.textContent= "Paper";
 const scissors= document.createElement("button");
+scissors.textContent= "Scissors";
+
 
 rock.addEventListener('click',() => playRound("Rock", getComputerChoice()));
 paper.addEventListener('click',() => playRound("Paper", getComputerChoice()));
 scissors.addEventListener('click',() => playRound("Scissors", getComputerChoice()));
 
-
+container.appendChild(rock);
+container.appendChild(paper);
+container.appendChild(scissors);
 container.appendChild(result);
+container.appendChild(score);
