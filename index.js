@@ -85,15 +85,22 @@ function playRound(humanChoice, computerChoice) {
   }
   }
 
-const humanSelection = getHumanChoice()
-const computerSelection = getComputerChoice()
+//const humanSelection = getHumanChoice()
+//const computerSelection = getComputerChoice()
 
-playRound(humanSelection, computerSelection)
+//playRound(humanSelection, computerSelection)
 
 // Play Game //
 // Your game will play 5 rounds.
 // You will write a function named playGame that calls playround to play 5 rounds,
 // keeps track of the scores and declares a winner at the end. 
-function playGame(){
-  for(let i=1 )
-}
+const rock= document.createElement("button");
+const paper= document.createElement("button");
+const scissors= document.createElement("button");
+
+rock.addEventListener('click', playRound("Rock", getComputerChoice()));
+paper.addEventListener('click', playRound("Paper", getComputerChoice()));
+scissors.addEventListener('click', playRound("Scissors", getComputerChoice()));
+
+
+
