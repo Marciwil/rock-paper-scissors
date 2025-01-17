@@ -92,6 +92,12 @@ function playRound(humanChoice, computerChoice) {
     result.textContent="It's a tie!"
   }
   score.textContent= "Computer Score " + computerScore + " Player Score " + humanScore;
+  if (humanScore === 5) {
+    score.textContent= "Player Wins!";
+  }
+  if (computerScore === 5) {
+    score.textContent= "Computer Wins!";
+  }
   }
 
 //const humanSelection = getHumanChoice()
