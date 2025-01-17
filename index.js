@@ -43,6 +43,13 @@ function getHumanChoice(){
 let humanScore = 0;
 let computerScore = 0;
 
+// const body= document.querySelector("body");
+const body= document.body
+const container= document.createElement("container"); 
+const result= document.createElement("div");
+
+body.appendChild(container)
+
 // Game Play Round //
 // Your game will be played round by round.
 // You will write a function that takes the human and computer player choices
@@ -51,37 +58,37 @@ let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
   if (humanChoice === "Rock" && computerChoice === "Paper"){
-    console.log("You lose! Paper beats Rock.")
+    result.textContent="You lose! Paper beats Rock."
     computerScore++ // computerScore = computerScore + 1
   }
   if (humanChoice === "Rock" && computerChoice === "Scissor"){
-    console.log("You win! Rock beats Scissors.")
+    result.textContent="You win! Rock beats Scissors."
     humanScore++
   }  
   if (humanChoice === "Rock" && computerChoice === "Rock"){
-    console.log("It's a tie!")
+    result.textContent="It's a tie!"
   }
   if (humanChoice === "Paper" && computerChoice === "Rock"){
-    console.log("You win! Paaper beats Rock.")
+    result.textContent="You win! Paaper beats Rock."
     humanScore++
     }
   if (humanChoice === "Paper" && computerChoice === "Scissors"){
-    console.log("You lose! Scissors beat Paper.")
+    result.textContent="You lose! Scissors beat Paper."
     computerScore++
   }
   if (humanChoice === "Paper" && computerChoice === "Paper"){
-    console.log("It's a tie!")
+    result.textContent="It's a tie!"
   }
   if (humanChoice === "Scissors" && computerChoice === "Rock"){
-    console.log("You lose! Rock beats Scissors.")
+    result.textContent="You lose! Rock beats Scissors."
     computerScore++
   }
   if (humanChoice === "Scissors" && computerChoice === "Paper"){
-    console.log("You win! Scissors beats Paper.")
+    result.textContent="You win! Scissors beats Paper."
     humanScore++
   }
   if (humanChoice === "Scissors" && computerChoice === "Scissors"){
-    console.log("It's a tie!")
+    result.textContent="It's a tie!"
   }
   }
 
@@ -98,9 +105,9 @@ const rock= document.createElement("button");
 const paper= document.createElement("button");
 const scissors= document.createElement("button");
 
-rock.addEventListener('click', playRound("Rock", getComputerChoice()));
-paper.addEventListener('click', playRound("Paper", getComputerChoice()));
-scissors.addEventListener('click', playRound("Scissors", getComputerChoice()));
+rock.addEventListener('click',() => playRound("Rock", getComputerChoice()));
+paper.addEventListener('click',() => playRound("Paper", getComputerChoice()));
+scissors.addEventListener('click',() => playRound("Scissors", getComputerChoice()));
 
 
-
+container.appendChild(result);
